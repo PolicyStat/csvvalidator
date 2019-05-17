@@ -763,7 +763,6 @@ def test_each_and_finally_assert_methods():
     problems = validator.validate(data)
     assert len(problems) == 1
     p = problems[0]
-    print(p)
     assert p['code'] == ('X7', 'custom message')
     assert p['message'] == 'Final assertion check failed.'
 
