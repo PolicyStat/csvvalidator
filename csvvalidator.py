@@ -1081,6 +1081,6 @@ Summary
 Found %s%s problem%s in total.
 
 """ % ('at least ' if limit else '', total, 's' if total != 1 else ''))
-    for code in sorted((counts.keys())):
+    for code in sorted(list(counts.keys())):
         w(':%s: %s\n' % (code, counts[code]))
     return total
