@@ -81,6 +81,8 @@ see the example.py and tests.py modules in the source code repository.
 import re
 from datetime import datetime
 
+import six
+
 
 UNEXPECTED_EXCEPTION = 0
 VALUE_CHECK_FAILED = 1
@@ -345,7 +347,7 @@ class CSVValidator(object):
 
         """
 
-        if isinstance(key, basestring):
+        if isinstance(key, six.string_types):
             assert key in self._field_names, 'unexpected field name: %s' % key
         else:
             for f in key:
@@ -699,7 +701,7 @@ class CSVValidator(object):
         for key, code, message in self._unique_checks:
             value = None
             values = unique_sets[key]
-            if isinstance(key, basestring):  # assume key is a field name
+            if isinstance(key, six.string_types):  # assume key is a field name
                 fi = self._field_names.index(key)
                 value = r[fi]
             else:  # assume key is a list or tuple, i.e., compound key
